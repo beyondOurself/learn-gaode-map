@@ -38,6 +38,52 @@ export default {
             // mapStyle: "amap://styles/whitesmoke", //设置地图的显示样式
           });
 
+          /** S  引入工具条  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+          // 同时引入工具条插件，比例尺插件和鹰眼插件
+          AMap.plugin(
+            [
+              "AMap.ToolBar",
+              "AMap.Scale",
+              "AMap.HawkEye",
+              "AMap.MapType",
+              "AMap.Geolocation",
+            ],
+            () => {
+              // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
+              this.map.addControl(new AMap.ToolBar());
+
+              // 在图面添加比例尺控件，展示地图在当前层级和纬度下的比例尺
+              this.map.addControl(new AMap.Scale());
+
+              // 在图面添加鹰眼控件，在地图右下角显示地图的缩略图
+              this.map.addControl(new AMap.HawkEye({ isOpen: true }));
+
+              // 在图面添加类别切换控件，实现默认图层与卫星图、实施交通图层之间切换的控制
+              this.map.addControl(new AMap.MapType());
+
+              // 在图面添加定位控件，用来获取和展示用户主机所在的经纬度位置
+              this.map.addControl(new AMap.Geolocation());
+            }
+          );
+          /** E  引入工具条  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+          /** S  信息窗体  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+          var content = [
+            '<div><img src=""" http:="" webapi.amap.com="" images="" autonavi.png="" "=""> ',
+            '<div style=""padding:0px" 0px="" 4px;"=""><b>高德软件有限公司</b>',
+            "电话 : 010-84107000   邮编 : 100102",
+            "地址 : 北京市望京阜通东大街方恒国际中心A座16层</div></div>",
+          ];
+
+          // 创建 infoWindow 实例
+          var infoWindow = new AMap.InfoWindow({
+            content: content.join("<br>"), //传入 dom 对象，或者 html 字符串
+          });
+
+          // 打开信息窗体
+          infoWindow.open(this.map);
+          /** E  信息窗体  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
           // 地图加载完后的事件
           this.map.on("complete", () => {
             console.log("地图加载完了~");
@@ -487,28 +533,81 @@ export default {
             // this.map.add(rectangle)
             /** E  矩形Rectangle*/
             /** S  椭圆形覆盖物 Ellipse*/
-            var ellipse = new AMap.Ellipse({
-              center: [116.433322, 39.900255],
-              radius: [2000, 1000], //半径
-              borderWeight: 3,
-              strokeColor: "#FF33FF",
-              strokeOpacity: 1,
-              strokeWeight: 6,
-              strokeOpacity: 0.2,
-              fillOpacity: 0.4,
-              // 线样式还支持 'dashed'
-              strokeStyle: "dashed",
-              strokeDasharray: [10, 10],
-              fillColor: "#1791fc",
-              zIndex: 50,
-            });
+            // var ellipse = new AMap.Ellipse({
+            //   center: [116.433322, 39.900255],
+            //   radius: [2000, 1000], //半径
+            //   borderWeight: 3,
+            //   strokeColor: "#FF33FF",
+            //   strokeOpacity: 1,
+            //   strokeWeight: 6,
+            //   strokeOpacity: 0.2,
+            //   fillOpacity: 0.4,
+            //   // 线样式还支持 'dashed'
+            //   strokeStyle: "dashed",
+            //   strokeDasharray: [10, 10],
+            //   fillColor: "#1791fc",
+            //   zIndex: 50,
+            // });
 
-            this.map.add(ellipse);
+            // this.map.add(ellipse);
             /** E  椭圆形覆盖物 Ellipse*/
+            /** S  矢量编辑工具*/
 
+            // 鼠标工具
+
+            /** E  矢量编辑工具*/
+            // this.map.plugin(["AMap.MouseTool"], () => {
+            //   const map = this.map;
+            //   var mouseTool = new AMap.MouseTool(map);
+            //   console.log("触发了鼠标工具~");
+            //   // 创建图标对象
+            //   let icon = {
+            //     // 图标类型，现阶段只支持 image 类型
+            //     type: "image",
+            //     // 图片 url
+            //     image:
+            //       "https://a.amap.com/jsapi_demos/static/demo-center/marker/express2.png",
+            //     // 图片尺寸
+            //     size: [64, 30],
+            //     // 图片相对 position 的锚点，默认为 bottom-center
+            //     anchor: "center",
+            //   };
+
+            //   // 设置文字对象
+
+            //   let text = {
+            //     // 要展示的文字内容
+            //     content: "中邮速递易",
+            //     // 文字方向，有 icon 时为围绕文字的方向，没有 icon 时，则为相对 position 的位置
+            //     direction: "right",
+            //     // 在 direction 基础上的偏移量
+            //     offset: [-20, -5],
+            //     // 文字样式
+            //     style: {
+            //       // 字体大小
+            //       fontSize: 12,
+            //       // 字体颜色
+            //       fillColor: "#22886f",
+            //       // 描边颜色
+            //       strokeColor: "#fff",
+            //       // 描边宽度
+            //       strokeWidth: 2,
+            //     },
+            //   };
+            //   //使用鼠标工具，在地图上画标记点
+            //   mouseTool.marker({
+            //     name: "标注332", // 此属性非绘制文字内容，仅最为标识使用
+            //     position: [116.466994, 39.984904],
+            //     zIndex: 16,
+            //     // 将第一步创建的 icon 对象传给 icon 属性
+            //     // icon: icon,
+            //     // 将第二步创建的 text 对象传给 text 属性
+            //     text: text,
+            //   });
+            // });
             /** E 矢量图形 */
 
-            this.map.setFitView([ellipse]);
+            this.map.setFitView();
 
             /** E 覆盖物 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
           });
