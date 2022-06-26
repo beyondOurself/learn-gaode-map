@@ -2,33 +2,14 @@
  * @Author: shencanlong
  * @Date: 2022-06-26 23:12:11
  * @LastEditors: git config user.name && git config user.email
- * @LastEditTime: 2022-06-27 00:59:32
+ * @LastEditTime: 2022-06-27 01:04:59
  * @FilePath: \learn-gaode-map\README.md
  * @Description: 
  * 
 -->
-# jsapi-01
+# 涟漪动画
 
-## Project setup
-```
-yarn install
-```
+![标记点涟漪动画][https://github.com/beyondOurself/learn-gaode-map/blob/master/src/assets/ripple.png
+]
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
 
