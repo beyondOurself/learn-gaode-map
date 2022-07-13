@@ -1,15 +1,33 @@
+<!--
+ * @Author: shencanlong
+ * @Date: 2022-06-26 23:12:11
+ * @LastEditors: git config user.name && git config user.email
+ * @LastEditTime: 2022-07-13 23:33:46
+ * @FilePath: \learn-gaode-map\public\index.html
+ * @Description: 
+ * 
+-->
 <!DOCTYPE html>
 <html lang="">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script type="text/javascript">
+      window._AMapSecurityConfig = {
+        securityJsCode: "b498c9ac7ed700af7f9b00e0c9c89358",
+      }
+    </script>
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to
+        continue.</strong
+      >
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->

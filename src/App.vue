@@ -11,19 +11,22 @@
 <template>
   <div id="app">
     <!-- <map-gao-de /> -->
-    <MapRipple />
+    <!-- <MapRipple /> -->
+    <MapSelect />
   </div>
 </template>
 
 
 <script>
 // import  MapGaoDe from '@/components/map/MapGaoDe.vue'
-import MapRipple from "@/components/map/MapRipple.vue";
+// import MapRipple from "@/components/map/MapRipple.vue";
+import MapSelect from "@/components/map/MapSelect.vue";
 export default {
   name: "App",
   components: {
     // MapGaoDe
-    MapRipple,
+    // MapRipple,
+    MapSelect,
   },
 };
 </script>
